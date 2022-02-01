@@ -1,0 +1,7 @@
+<div class="">
+  <input type="text" #cliente_nombre placeholder="Nombre"/>
+  <input type="text" #cliente_dni placeholder="DNI"/>
+  <input type="tel" #cliente_telefono placeholder="Teléfono"/>
+  <input type="email" #cliente_email placeholder="Correo Electrónico"/>
+</div>
+<button class="btn btn-success" (click)="crearCliente(cliente_nombre.value, cliente_dni.value, cliente_telefono.value, cliente_email.value)">Crear</button>
