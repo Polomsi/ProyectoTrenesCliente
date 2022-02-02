@@ -8,7 +8,6 @@ import {EmpleadoService} from "./empleado.service";
 import { GetEmpleadosComponent } from './componentes/get-empleados/get-empleados.component';
 import { MainEmpleadoComponent } from './main-empleado/main-empleado.component';
 import { CrearEmpleadoComponent } from './componentes/crear-empleado/crear-empleado.component';
-import { DetailComponent } from './componentes/detail/detail.component';
 import { DetailEmpleadoComponent } from './componentes/detail-empleado/detail-empleado.component';
 
 
@@ -17,7 +16,6 @@ import { DetailEmpleadoComponent } from './componentes/detail-empleado/detail-em
     GetEmpleadosComponent,
     MainEmpleadoComponent,
     CrearEmpleadoComponent,
-    DetailComponent,
     DetailEmpleadoComponent
   ],
   imports: [
