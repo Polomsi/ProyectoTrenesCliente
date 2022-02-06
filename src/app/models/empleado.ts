@@ -7,4 +7,5 @@ export class Empleado {
     public sueldo: number | null
   ) {
   }
+
 }

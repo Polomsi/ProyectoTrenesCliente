@@ -27,4 +27,9 @@ export class ClienteService {
     const url = `${this.url_api}/actualizarTlfCli/${dni}/${telefono}`;
     return this.http.put(url, JSON.stringify({dni: dni, telefono: telefono}));
   }
+  getClienteDNI(dni: string) {
+    const url = `${this.url_api}/clientes/${dni}`;
+    return this.http.get<any>(url);
+  }
+
 }

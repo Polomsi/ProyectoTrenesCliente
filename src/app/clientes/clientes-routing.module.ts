@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {GetClientesComponent} from "./componentes/get-clientes/get-clientes.component";
 import {CrearClienteComponent} from "./componentes/crear-cliente/crear-cliente.component";
 import {ActualizarClienteComponent} from "./componentes/actualizar-cliente/actualizar-cliente.component";
+import {DetailClienteComponent} from "./componentes/detail-cliente/detail-cliente.component";
 
 const routes: Routes = [
     {
@@ -10,17 +11,21 @@ const routes: Routes = [
       component: GetClientesComponent,
     },
     {
-      path: "todos",
+      path: "cliente/todos",
       redirectTo: "",
       pathMatch: "full"
     },
     {
-      path: "crear",
+      path: "cliente/crear",
       component: CrearClienteComponent,
     },
     {
-      path: "actualizar/:dni/:nombre/:telefono",
+      path: "cliente/actualizar/:dni/:nombre/:telefono",
       component: ActualizarClienteComponent,
+    },
+    {
+      path: "cliente/detail/:dni",
+      component: DetailClienteComponent,
     },
 ];
 

@@ -8,8 +8,9 @@
         <p class="mb-0">{{empleado._nombre}} ({{empleado._tipoObjeto}})</p>
       </div>
       <div class="empleado-info-right">
+        <button class="btn btn-info" [routerLink]="['/empleado/detail',empleado._dni]">Detalles</button>
         <button class="btn btn-danger" (click)="deleteCliente(empleado._dni)">Eliminar</button>
-        <button class="btn btn-success" [routerLink]="['/actualizar',empleado._dni,empleado._nombre,empleado._telefono]" >Actualizar</button>
+        <button class="btn btn-success" [routerLink]="['/empleado/actualizar',empleado._dni,empleado._nombre,empleado._telefono]" >Actualizar</button>
       </div>
     </div>
 

@@ -1,11 +1,11 @@
 export class Registro {
   constructor(
-    public _id: string,
-    public _tren_id: string,
-    public _origen: string,
-    public _destino: string,
-    public _fecha:Date,
-    public _kilometros: Number
+    public id: string,
+    public tren_id: string,
+    public origen: string,
+    public destino: string,
+    public fecha:Date,
+    public kilometros: Number
   ) {
   }
 }

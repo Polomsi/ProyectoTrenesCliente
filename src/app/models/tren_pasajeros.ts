@@ -2,19 +2,22 @@ import {Tren} from "./tren";
 
 export class TrenPasajeros extends Tren {
 
-  public _nPasajeros: number;
-  public _precio: number;
+  public nPasajeros: number;
+  public nPlazas: number;
+  public precio: number;
 
   constructor(
-    _tipoObjeto: string,
-    _id: string,
-    _origen: string,
-    _destino: string,
-    _nPasajeros: number,
-    _precio: number
+    tipoObjeto: string,
+    id: string,
+    origen: string,
+    destino: string,
+    nPasajeros: number,
+    nPlazas: number,
+    precio: number
   ) {
-    super(_tipoObjeto, _id, _origen, _destino);
-    this._nPasajeros = _nPasajeros;
-    this._precio = _precio;
+    super(tipoObjeto, id, origen, destino);
+    this.nPasajeros = nPasajeros;
+    this.precio = precio;
+    this.nPlazas = nPlazas;
   }
 }

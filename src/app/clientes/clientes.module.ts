@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CrearClienteComponent } from './componentes/crear-cliente/crear-cliente.component';
 import { ActualizarClienteComponent } from './componentes/actualizar-cliente/actualizar-cliente.component';
 import {FormsModule} from "@angular/forms";
+import { DetailClienteComponent } from './componentes/detail-cliente/detail-cliente.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {FormsModule} from "@angular/forms";
     GetClientesComponent,
     CrearClienteComponent,
     ActualizarClienteComponent,
+    DetailClienteComponent,
   ],
   imports: [
     CommonModule,

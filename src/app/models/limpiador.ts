@@ -2,7 +2,7 @@ import {Empleado} from "./empleado";
 
 export class Limpiador extends Empleado {
   public horas: number | null;
-  public idTren: number | null;
+  public tren: number | null;
   constructor(
     tipo: string | null,
     dni: string | null,
@@ -10,11 +10,11 @@ export class Limpiador extends Empleado {
     telefono: number | null,
     sueldo: number | null,
     horas: number | null,
-    idTren: number | null
+    tren: number | null
   ) {
     super(tipo, dni, nombre, telefono, sueldo);
     this.horas = horas;
-    this.idTren = idTren;
+    this.tren = tren;
   }
 
 }

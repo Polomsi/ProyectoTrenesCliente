@@ -1,8 +1,8 @@
 import {Empleado} from "./empleado";
 
 export class Operario extends Empleado {
-  public tren: string | null;
-  public viajes: number | null;
+  private tren: string | null;
+  private viajes: number | null;
 
   constructor(
     tipo: string | null,
@@ -17,5 +17,4 @@ export class Operario extends Empleado {
     this.tren = tren;
     this.viajes = viajes;
   }
-
 }

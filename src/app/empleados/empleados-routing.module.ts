@@ -11,16 +11,16 @@ const routes: Routes = [
     component: GetEmpleadosComponent,
   },
   {
-    path: "todos",
+    path: "empleado/todos",
     redirectTo: "",
     pathMatch: "full"
   },
   {
-    path: "crear",
+    path: "empleado/crear",
     component: CrearEmpleadoComponent
   },
   {
-    path: "detail/:dni",
+    path: "empleado/detail/:dni",
     component: DetailEmpleadoComponent
   },
 ];

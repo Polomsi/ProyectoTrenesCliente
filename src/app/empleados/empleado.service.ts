@@ -39,4 +39,35 @@ export class EmpleadoService {
     return this.http.get<any>(url);
   }
 
+  calcularSalario(dni: string) {
+    const url = `${this.url_api}/salarios/${dni}`;
+    return this.http.get<string>(url);
+  }
+  actualizarSalarioEmpleado(dni: string, salario: number) {
+    const url = `${this.url_api}/actualizarSalEmp/${dni}/${salario}`;
+    return this.http.put<any>(url, JSON.stringify({"dni": dni, "salario": salario}));
+  }
+
+  //OPERARIO
+  actualizarTrenOperario(dni: string, idTren: string) {
+    const url = `${this.url_api}/actualizarTrenOpe/${dni}/${idTren}`;
+    return this.http.put<any>(url, JSON.stringify({"dni": dni, "idTren": idTren}));
+  }
+  actualizarViajesOperario(dni: string, nViajes: number) {
+    const url = `${this.url_api}/actualizarTrenOpe/${dni}/${nViajes}`;
+    return this.http.put<any>(url, JSON.stringify({"dni": dni, "nViajes": nViajes}));
+  }
+
+  //REVISOR
+  actualizarViajeHoras(dni: string, nViajes: number, horas: number) {
+    const url = `${this.url_api}/actualizarViajeHoras/${dni}/${nViajes}/${horas}`;
+    return this.http.put<any>(url, JSON.stringify({"dni": dni, "nViajes": nViajes, "horas": horas}));
+  }
+
+  //LIMPIADOR
+  actualizarHorasTren(dni: string, horas: number, idTren: string) {
+    const url = `${this.url_api}/actualizarHorasTren/${dni}/${horas}/${idTren}`;
+    return this.http.put<any>(url, JSON.stringify({"dni": dni, "horas": horas, "idTren": idTren}));
+  }
+
 }

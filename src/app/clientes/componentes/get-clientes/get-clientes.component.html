@@ -8,8 +8,9 @@
         <p class="mb-0">{{cliente._nombre}}</p>
       </div>
       <div class="cliente-info-right">
+        <button class="btn btn-info" [routerLink]="['/cliente/detail',cliente._dni]">Detalle</button>
         <button class="btn btn-danger" (click)="deleteCliente(cliente._dni)">Eliminar</button>
-        <button class="btn btn-success" [routerLink]="['/actualizar',cliente._dni,cliente._nombre,cliente._telefono]" >Actualizar</button>
+        <button class="btn btn-success" [routerLink]="['/cliente/actualizar',cliente._dni,cliente._nombre,cliente._telefono]" >Actualizar</button>
       </div>
     </div>
 

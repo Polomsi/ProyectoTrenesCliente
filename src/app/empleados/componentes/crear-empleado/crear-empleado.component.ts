@@ -3,6 +3,7 @@ import {Limpiador} from "../../../models/limpiador";
 import {Revisor} from "../../../models/revisor";
 import {Operario} from "../../../models/operario";
 import {EmpleadoService} from "../../empleado.service";
+import {ViajeService} from "../../../viajes/viaje.service";
 
 @Component({
   selector: 'app-crear-empleado',
@@ -11,7 +12,8 @@ import {EmpleadoService} from "../../empleado.service";
 })
 export class CrearEmpleadoComponent implements OnInit {
   empleado!: any;
-  constructor(private empleadoService: EmpleadoService) {
+  viajes!: any [];
+  constructor(private empleadoService: EmpleadoService, private viajeService: ViajeService) {
     this.empleado = {
       tipo: "",
       nombre: "",
@@ -22,6 +24,9 @@ export class CrearEmpleadoComponent implements OnInit {
       viajes: "",
       horas: "",
     }
+    this.viajeService.getViajes().subscribe((response) => {
+      this.viajes = response;
+    });
   }
 
   ngOnInit(): void {

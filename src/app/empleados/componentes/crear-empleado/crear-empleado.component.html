@@ -10,8 +10,9 @@
   <input type="number" [(ngModel)]="empleado.sueldo" placeholder="Sueldo"/>
   <input *ngIf="empleado.tipo == 'limpiador' || empleado.tipo == 'revisor'" type="number"
          placeholder="Horas" [(ngModel)]="empleado.horas"/>
-  <select *ngIf="empleado.tipo == 'operario'" [(ngModel)]="empleado.tren">
-    <option>Tren</option>
+  <select *ngIf="empleado.tipo == 'operario' || empleado.tipo == 'limpiador'" [(ngModel)]="empleado.tren">
+    <option selected disabled value="">Elige un tren</option>
+    <option *ngFor="let viaje of viajes" [value]="viaje._id">{{viaje._origen}} - {{viaje._destino}}</option>
   </select>
   <input type="number" *ngIf="empleado.tipo=='operario' || empleado.tipo == 'revisor'"
   placeholder="Viajes" [(ngModel)]="empleado.viajes"/>

@@ -1,1 +1,61 @@
-<p>detail-empleado works!</p>
+<table class="table table-active">
+  <thead>
+  <tr>
+    <th>Tipo</th>
+    <th>DNI</th>
+    <th>Nombre</th>
+    <th>Teléfono</th>
+    <th>Sueldo</th>
+    <th *ngIf="empleado?.tipo == 'limpiador' || empleado?.tipo == 'revisor'">Horas</th>
+    <th *ngIf="empleado?.tipo == 'operario' || empleado?.tipo == 'limpiador'">Tren</th>
+    <th *ngIf="empleado?.tipo == 'operario' || empleado?.tipo == 'revisor'">Viajes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{empleado?.tipo}}</td>
+    <td>{{empleado?.dni}}</td>
+    <td>{{empleado?.nombre}}</td>
+    <td>{{empleado?.telefono}}</td>
+    <td><input type="number" [(ngModel)]="empleado.sueldo"/></td>
+    <td *ngIf="empleado?.tipo == 'limpiador' || empleado?.tipo == 'revisor'">
+      <input type="number" [(ngModel)]="empleado.horas"/>
+    </td>
+    <td *ngIf="empleado?.tipo == 'operario' || empleado?.tipo == 'limpiador'">
+      <select [(ngModel)]="empleado.tren">
+        <option *ngFor="let tren of trenes" [value]="tren._id">{{tren._origen}} - {{tren._destino}}</option>
+      </select>
+    </td>
+    <td *ngIf="empleado?.tipo == 'operario' || empleado?.tipo == 'revisor'">
+      <input type="number" [(ngModel)]="empleado.viajes"/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Salario</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{salario}}</td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <button (click)="actualizarSalario()" class="btn btn-success">Actualizar Salario</button>
+  <button (click)="actualizarTrenOperario()" class="btn btn-success" *ngIf="empleado?.tipo == 'operario'">Actualizar
+    Tren (operario)
+  </button>
+  <button (click)="actualizarViajesOperario()" class="btn btn-success" *ngIf="empleado?.tipo == 'operario'">Actualizar
+    Viajes (operario)
+  </button>
+  <button (click)="actualizarViajeHoras()" class="btn btn-success" *ngIf="empleado?.tipo == 'revisor'">Actualizar Horas
+    de Viaje (revisor)
+  </button>
+  <button (click)="actualizarHorasTren()" class="btn btn-success" *ngIf="empleado?.tipo == 'limpiador'">Actualizar Horas
+    de Tren (limpiador)
+  </button>
+</div>
