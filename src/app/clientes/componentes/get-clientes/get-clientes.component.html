@@ -10,7 +10,6 @@
       <div class="cliente-info-right">
         <button class="btn btn-info" [routerLink]="['/cliente/detail',cliente._dni]">Detalle</button>
         <button class="btn btn-danger" (click)="deleteCliente(cliente._dni)">Eliminar</button>
-        <button class="btn btn-success" [routerLink]="['/cliente/actualizar',cliente._dni,cliente._nombre,cliente._telefono]" >Actualizar</button>
       </div>
     </div>
 

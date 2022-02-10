@@ -17,7 +17,7 @@
     <td>{{empleado?.dni}}</td>
     <td>{{empleado?.nombre}}</td>
     <td>{{empleado?.telefono}}</td>
-    <td><input type="number" [(ngModel)]="empleado.sueldo"/></td>
+    <td><input *ngIf="empleado?.sueldo" type="number" [(ngModel)]="empleado.sueldo"/></td>
     <td *ngIf="empleado?.tipo == 'limpiador' || empleado?.tipo == 'revisor'">
       <input type="number" [(ngModel)]="empleado.horas"/>
     </td>

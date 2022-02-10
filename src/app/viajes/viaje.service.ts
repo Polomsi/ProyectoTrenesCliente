@@ -15,6 +15,10 @@ export class ViajeService {
     const url = `${this.url_api}/viajes`;
     return this.http.get<any[]>(url);
   }
+  getViaje(id: string) {
+    const url = `${this.url_api}/viaje/${id}`;
+    return this.http.get<any>(url);
+  }
 
   crearTrenPasajeros(tren: Tren) {
     const url = `${this.url_api}/crearTrenPasajeros`;

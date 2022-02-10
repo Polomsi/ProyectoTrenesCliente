@@ -17,8 +17,13 @@ export class DetailClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteService.getClienteDNI(this.cliente_dni).subscribe((data) => {
-      this.cliente = data;
-      console.log(this.cliente)
+      this.cliente = data[0];
+    });
+  }
+
+  actualizarTlfCli() {
+    this.clienteService.actualizarTlfCli(this.cliente._dni, this.cliente._telefono).subscribe((response) => {
+      console.log(response);
     });
   }
 

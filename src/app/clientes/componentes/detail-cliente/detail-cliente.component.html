@@ -1,1 +1,19 @@
-<p>detail-cliente works!</p>
+<table class="table table-active">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>DNI</th>
+    <th>Teléfono</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{cliente?._nombre}}</td>
+    <td>{{cliente?._dni}}</td>
+    <td><input *ngIf="cliente?._telefono" type="number" [(ngModel)]="cliente._telefono"/></td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <button (click)="actualizarTlfCli()" class="btn btn-success">Actualizar Teléfono</button>
+</div>

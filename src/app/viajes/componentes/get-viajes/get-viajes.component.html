@@ -8,7 +8,7 @@
         <p class="mb-0">{{viaje._origen}} - {{viaje._destino}} ({{viaje._tipoObjeto}})</p>
       </div>
       <div class="cliente-info-right">
-        <button class="btn btn-info" [routerLink]="['/viaje/detail',viaje._id]">Detalle</button>
+        <button class="btn btn-info" [routerLink]="['viaje/detail',viaje._id]">Detalle</button>
         <button class="btn btn-danger" (click)="deleteTrenes(viaje._id)">Eliminar</button>
       </div>
     </div>

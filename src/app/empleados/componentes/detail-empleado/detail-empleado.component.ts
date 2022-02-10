@@ -12,7 +12,7 @@ import {ViajeService} from "../../../viajes/viaje.service";
   styleUrls: ['./detail-empleado.component.css']
 })
 export class DetailEmpleadoComponent implements OnInit {
-  empleado: any;
+  empleado!: any;
   dni_empleado!: string;
   trenes!: any[];
   salario!: string;
@@ -40,9 +40,8 @@ export class DetailEmpleadoComponent implements OnInit {
       this.trenes = respuesta;
     })
     this.empleadoService.calcularSalario(this.dni_empleado).subscribe((respuesta) => {
-      this.salario = respuesta;
+      this.salario = respuesta.toString()
     })
-
 
   }
 
