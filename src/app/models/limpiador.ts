@@ -1,20 +1,35 @@
 import {Empleado} from "./empleado";
 
 export class Limpiador extends Empleado {
-  public horas: number | null;
-  public tren: number | null;
+  private _horas: number;
+  private _tren: number;
   constructor(
-    tipo: string | null,
-    dni: string | null,
-    nombre: string | null,
-    telefono: number | null,
-    sueldo: number | null,
-    horas: number | null,
-    tren: number | null
+    _tipoObjeto: string,
+    _dni: string,
+    _nombre: string,
+    _telefono: number,
+    _sueldo: number,
+    _horas: number,
+    _tren: number
   ) {
-    super(tipo, dni, nombre, telefono, sueldo);
-    this.horas = horas;
-    this.tren = tren;
+    super(_tipoObjeto, _dni, _nombre, _telefono, _sueldo);
+    this._horas = _horas;
+    this._tren = _tren;
   }
 
+  get horas(): number {
+    return this._horas;
+  }
+
+  set horas(value: number) {
+    this._horas = value;
+  }
+
+  get tren(): number {
+    return this._tren;
+  }
+
+  set tren(value: number) {
+    this._tren = value;
+  }
 }

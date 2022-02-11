@@ -2,8 +2,10 @@
   <select [(ngModel)]="billete.dni">
     <option *ngFor="let cliente of clientes" [value]="cliente._dni">{{cliente._nombre}}</option>
   </select>
-  <input type="text" [(ngModel)]="billete.idTren" placeholder="Tren"/>
-  <input type="text" [(ngModel)]="billete.Asiento" placeholder="Asiento"/>
-  <input type="number" [(ngModel)]="billete.Precio" placeholder="Precio"/>
+  <select [(ngModel)]="billete.idTrenPasajeros">
+    <option *ngFor="let tren of trenes" [value]="tren._id">{{tren._origen}} - {{tren._destino}}</option>
+  </select>
+  <input type="text" [(ngModel)]="billete.asiento" placeholder="Asiento">
+  <input type="number" [(ngModel)]="billete.precio" placeholder="Precio">
 </div>
 <button class="btn btn-success" (click)="crearBillete()">Crear</button>

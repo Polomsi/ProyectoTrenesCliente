@@ -4,6 +4,9 @@ import {Cliente} from "../../../models/cliente";
 import {ClienteService} from "../../../clientes/cliente.service";
 import {ViajeService} from "../../viaje.service";
 import {BilletesService} from "../../billetes.service";
+import {TrenPasajeros} from "../../../models/tren_pasajeros";
+import {TrenMercancias} from "../../../models/tren_mercancias";
+import {delay} from "rxjs";
 
 @Component({
   selector: 'app-crear-billete',
@@ -11,22 +14,26 @@ import {BilletesService} from "../../billetes.service";
   styleUrls: ['./crear-billete.component.css']
 })
 export class CrearBilleteComponent implements OnInit {
-  billete: Billete = {
-    dni: "",
-    idTren: "",
-    Asiento: "",
-    Precio: 0
-  }
+  billete: Billete = new Billete("", "", "", "", 0, "", "", new Date())
   clientes!: any[];
-  trenes!: any[];
+  trenes: any[] = [];
 
   constructor(private clienteService: ClienteService, private viajeService: ViajeService, private billeteService: BilletesService) {
     this.clienteService.getClientes().subscribe((clientes) => {
       this.clientes = clientes;
     })
-    this.viajeService.getViajes().subscribe((viajes) => {
-      this.trenes = viajes;
-    })
+
+    setTimeout(() => {
+      this.viajeService.getViajes().subscribe((viajes) => {
+        console.log(viajes)
+        viajes.forEach((value) => {
+          if (value._tipoObjeto === "pasajeros") {
+            this.trenes.push(value)
+          }
+        })
+      })
+    }, 500);
+
   }
 
   ngOnInit(): void {
@@ -35,7 +42,6 @@ export class CrearBilleteComponent implements OnInit {
 
   crearBillete() {
     this.billeteService.crearBillete(this.billete).subscribe((respuesta) => {
-      console.log(respuesta)
     })
   }
 }

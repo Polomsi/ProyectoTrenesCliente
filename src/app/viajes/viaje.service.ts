@@ -40,15 +40,15 @@ export class ViajeService {
     return this.http.put<any>(url, JSON.stringify({"id": id, "origen": origen}));
   }
   actualizarDestinoViaje(id: string, destino: string) {
-    const url = `${this.url_api}/actualizarOrigenViaje/${id}/${destino}`;
+    const url = `${this.url_api}/actualizarDestinoViaje/${id}/${destino}`;
     return this.http.put<any>(url, JSON.stringify({"id": id, "destino": destino}));
   }
   actualizarCarga(id: string, tipocarga: string, cantidad: number) {
-    const url = `${this.url_api}/actualizarOrigenViaje/${id}/${tipocarga}/${cantidad}`;
+    const url = `${this.url_api}/actualizarCarga/${id}/${tipocarga}/${cantidad}`;
     return this.http.put<any>(url, JSON.stringify({"id": id, "tipocarga": tipocarga, "cantidad": cantidad}));
   }
   actualizarPrecio(id: string, precio: number) {
-    const url = `${this.url_api}/actualizarOrigenViaje/${id}/${precio}`;
+    const url = `${this.url_api}/actualizarPrecio/${id}/${precio}`;
     return this.http.put<any>(url, JSON.stringify({"id": id, "precio": precio}));
   }
 

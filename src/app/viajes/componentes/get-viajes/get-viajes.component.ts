@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ViajeService} from "../../viaje.service";
+import {TrenPasajeros} from "../../../models/tren_pasajeros";
+import {TrenMercancias} from "../../../models/tren_mercancias";
 
 @Component({
   selector: 'app-get-viajes',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BilletesService} from "../../billetes.service";
 import {RegistrosService} from "../../registros.service";
+import {Registro} from "../../../models/registro";
 
 @Component({
   selector: 'app-get-registros',
@@ -20,11 +21,11 @@ export class GetRegistrosComponent implements OnInit {
   }
 
   deleteRegistro(id: string){
-    console.log(id)
+    this.registroService.deleteRegistros(id).subscribe();
   }
 
   getFecha(fecha: string) {
-    let date = new Date(fecha);
+    let date = new Date(fecha)
     return date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear();
   }
 

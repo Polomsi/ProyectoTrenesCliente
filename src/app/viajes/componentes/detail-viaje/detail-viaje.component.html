@@ -15,20 +15,20 @@
   <tbody>
   <tr>
     <td>{{viaje?._tipoObjeto}}</td>
-    <td><input *ngIf="viaje?._destino" type="text" [(ngModel)]="viaje._destino"/></td>
-    <td><input *ngIf="viaje?._origen" type="text" [(ngModel)]="viaje._origen"/></td>
+    <td><input *ngIf="viaje?._origen" type="text" [(ngModel)]="viaje._origen"></td>
+    <td><input *ngIf="viaje?._destino" type="text" [(ngModel)]="viaje._destino"></td>
 
     <td *ngIf="viaje?._tipoObjeto === 'pasajeros'">{{viaje?._nPasajeros}}</td>
     <td *ngIf="viaje?._tipoObjeto === 'pasajeros'">{{viaje?._nPlazas}}</td>
     <td *ngIf="viaje?._tipoObjeto === 'pasajeros'">
-      <input *ngIf="viaje?._precio" type="number" [(ngModel)]="viaje._precio"/>
+      <input *ngIf="viaje?._precio" type="number" [(ngModel)]="viaje._precio">
     </td>
 
     <td *ngIf="viaje?._tipoObjeto === 'mercancias'">
-      <input *ngIf="viaje?._tipoCarga" type="text" [(ngModel)]="viaje._tipoCarga"/>
+      <input *ngIf="viaje?._tipoCarga" type="text" [(ngModel)]="viaje._tipoCarga">
     </td>
     <td *ngIf="viaje?._tipoObjeto === 'mercancias'">
-      <input *ngIf="viaje?._kilosCarga" type="number" [(ngModel)]="viaje._kilosCarga"/>
+      <input *ngIf="viaje?._kilosCarga" type="number" [(ngModel)]="viaje._kilosCarga">
     </td>
   </tr>
   </tbody>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RegistrosService} from "../../registros.service";
 import {BilletesService} from "../../billetes.service";
+import {Billete} from "../../../models/billete";
 
 @Component({
   selector: 'app-get-billetes',
@@ -23,15 +24,15 @@ export class GetBilletesComponent implements OnInit {
     return billete._precio + (billete._precio * 0.21);
   }
 
-  deleteBillete(id: string) {
-    this.billeteService.deleteBilletes(id).subscribe((respuesta) => {
+  deleteBillete(dni: string) {
+    this.billeteService.deleteBilletes(dni).subscribe((respuesta) => {
       console.log(respuesta)
     })
   }
 
 
   getFecha(fecha: string) {
-    let date = new Date(fecha);
+    let date = new Date(fecha)
     return date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
   }
 }

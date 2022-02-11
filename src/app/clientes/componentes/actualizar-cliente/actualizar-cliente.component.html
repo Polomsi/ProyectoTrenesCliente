@@ -1,6 +1,0 @@
-<div class="">
-  <input type="text" disabled #cliente_nombre [ngModel]="cliente.nombre" placeholder="Nombre"/>
-  <input type="text" disabled #cliente_dni [ngModel]="cliente.dni" placeholder="DNI"/>
-  <input type="tel" #cliente_telefono [(ngModel)]="cliente.telefono" placeholder="Teléfono"/>
-</div>
-<button class="btn btn-success" (click)="actualizarTlfCli(cliente_dni.value, cliente_telefono.value)">Actualizar</button>

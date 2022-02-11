@@ -23,9 +23,9 @@ export class ClienteService {
     const url = `${this.url_api}/deleteCliente/${dni}`;
     return this.http.delete(url);
   }
-  actualizarTlfCli(dni: string, telefono: number) {
+  actualizarTlfCli(dni: string, telefono: number | string) {
     const url = `${this.url_api}/actualizarTlfCli/${dni}/${telefono}`;
-    return this.http.put(url, JSON.stringify({dni: dni, telefono: telefono}));
+    return this.http.put(url, JSON.stringify({_dni: dni, _telefono: telefono}));
   }
   getClienteDNI(dni: string) {
     const url = `${this.url_api}/clientes/${dni}`;

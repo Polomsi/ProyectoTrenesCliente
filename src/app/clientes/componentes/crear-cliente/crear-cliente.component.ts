@@ -8,24 +8,18 @@ import {ClienteService} from "../../cliente.service";
   styleUrls: ['./crear-cliente.component.css']
 })
 export class CrearClienteComponent implements OnInit {
-  cliente!: any;
+  cliente!: Cliente;
 
   constructor(private clienteService: ClienteService) {
+    this.cliente = new Cliente("", "", 0, "");
   }
 
   ngOnInit(): void {
   }
 
-  crearCliente(nombre: string, dni: string, telefono: string | number, email: string) {
-    this.cliente = {
-      dni: dni,
-      nombre: nombre,
-      telefono: telefono,
-      email: email
-    }
-    console.log(JSON.stringify(this.cliente));
+  crearCliente() {
+    // this.cliente = new Cliente(dni, nombre, parseInt(telefono), email);
     this.clienteService.crearCliente(this.cliente).subscribe((response) => {
-      console.log(response);
     });
   }
 }

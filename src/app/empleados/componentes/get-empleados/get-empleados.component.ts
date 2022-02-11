@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpleadoService} from "../../empleado.service";
+import {Empleado} from "../../../models/empleado";
 
 @Component({
   selector: 'app-get-empleados',
@@ -14,8 +15,8 @@ export class GetEmpleadosComponent implements OnInit {
   ngOnInit(): void {
 
     this.empleadoService.getEmpleados().subscribe((data) => {
-      console.log(data)
       this.empleados = data;
+      console.log(data)
     })
   }
   deleteCliente(dni: string) {

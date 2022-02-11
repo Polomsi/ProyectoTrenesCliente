@@ -8,7 +8,7 @@
         <p class="mb-0">DNI: {{billete._dni}} - Asiento: {{billete._asiento}}<br/>Destino: {{billete._destino}} - PVP: {{sumarIva(billete)}}€<br/>Fecha: {{getFecha(billete._fecha)}}</p>
       </div>
       <div class="billete-info-right">
-        <button class="btn btn-danger" (click)="deleteBillete(billete._id)">Eliminar</button>
+        <button class="btn btn-danger" (click)="deleteBillete(billete._dni)">Eliminar</button>
       </div>
     </div>
 

@@ -1,41 +1,41 @@
 export class Cliente {
   constructor(
-    public _dni: string | null,
-    public _nombre: string | null,
-    public _telefono: number | null,
-    public _email: string | null
+    private _dni: string,
+    private _nombre: string,
+    private _telefono: number | string,
+    private _email: string
   ) {
   }
 
-  get dni(): string | null {
+  get dni(): string {
     return this._dni;
   }
 
-  get nombre(): string | null {
+  get nombre(): string {
     return this._nombre;
   }
 
-  get telefono(): number | null {
+  get telefono(): number | string {
     return this._telefono;
   }
 
-  get email(): string | null {
+  get email(): string {
     return this._email;
   }
 
-  set dni(value: string | null) {
+  set dni(value: string) {
     this._dni = value;
   }
 
-  set nombre(value: string | null) {
+  set nombre(value: string) {
     this._nombre = value;
   }
 
-  set telefono(value: number | null) {
+  set telefono(value: number | string) {
     this._telefono = value;
   }
 
-  set email(value: string | null) {
+  set email(value: string) {
     this._email = value;
   }
 }

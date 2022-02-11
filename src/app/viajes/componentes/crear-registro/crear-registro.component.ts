@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Registro} from "../../../models/registro";
 import {ViajeService} from "../../viaje.service";
 import {RegistrosService} from "../../registros.service";
+import {TrenPasajeros} from "../../../models/tren_pasajeros";
+import {TrenMercancias} from "../../../models/tren_mercancias";
 
 @Component({
   selector: 'app-crear-registro',
@@ -9,11 +11,7 @@ import {RegistrosService} from "../../registros.service";
   styleUrls: ['./crear-registro.component.css']
 })
 export class CrearRegistroComponent implements OnInit {
-  registro: Registro = {
-    id: "",
-    tren_id: "",
-    kilometros: 0,
-  };
+  registro: Registro = new Registro("", "", 0, "", "", new Date());
 
   trenes: any[] = [];
 
@@ -29,9 +27,8 @@ export class CrearRegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  crearRegistro(){
+  crearRegistro() {
     this.registroService.crearRegistro(this.registro).subscribe((respuesta) => {
-      console.log(respuesta)
     })
   }
 

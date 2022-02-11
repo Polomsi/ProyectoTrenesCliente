@@ -2,19 +2,35 @@ import {Tren} from "./tren";
 
 export class TrenMercancias extends Tren {
 
-  public carga: string;
-  public cantidad: number;
+  private _tipoCarga: string;
+  private _kilosCarga: number;
 
   constructor(
-    tipoObjeto:string,
-    id: string,
-    origen: string,
-    destino: string,
-    carga: string,
-    cantidad:number
+    _tipoObjeto:string,
+    _id: string,
+    _origen: string,
+    _destino: string,
+    _tipoCarga: string,
+    _kilosCarga:number
   ) {
-    super(tipoObjeto, id, origen, destino);
-    this.carga = carga;
-    this.cantidad = cantidad;
+    super(_tipoObjeto, _id, _origen, _destino);
+    this._tipoCarga = _tipoCarga;
+    this._kilosCarga = _kilosCarga;
+  }
+
+  get tipoCarga(): string {
+    return this._tipoCarga;
+  }
+
+  set tipoCarga(value: string) {
+    this._tipoCarga = value;
+  }
+
+  get kilosCarga(): number {
+    return this._kilosCarga;
+  }
+
+  set kilosCarga(value: number) {
+    this._kilosCarga = value;
   }
 }

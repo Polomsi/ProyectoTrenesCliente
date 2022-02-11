@@ -6,9 +6,10 @@ import {ClientesRoutingModule} from "./clientes-routing.module";
 import {ClienteService} from "./cliente.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CrearClienteComponent } from './componentes/crear-cliente/crear-cliente.component';
-import { ActualizarClienteComponent } from './componentes/actualizar-cliente/actualizar-cliente.component';
 import {FormsModule} from "@angular/forms";
 import { DetailClienteComponent } from './componentes/detail-cliente/detail-cliente.component';
+import { GraficosComponent } from './componentes/graficos/graficos.component';
+import {HighchartsChartModule} from "highcharts-angular";
 
 
 @NgModule({
@@ -16,14 +17,15 @@ import { DetailClienteComponent } from './componentes/detail-cliente/detail-clie
     MainClienteComponent,
     GetClientesComponent,
     CrearClienteComponent,
-    ActualizarClienteComponent,
     DetailClienteComponent,
+    GraficosComponent,
   ],
   imports: [
     CommonModule,
     ClientesRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ],
   providers: [
     ClienteService

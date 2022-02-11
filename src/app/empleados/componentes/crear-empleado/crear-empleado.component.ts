@@ -4,6 +4,8 @@ import {Revisor} from "../../../models/revisor";
 import {Operario} from "../../../models/operario";
 import {EmpleadoService} from "../../empleado.service";
 import {ViajeService} from "../../../viajes/viaje.service";
+import {TrenPasajeros} from "../../../models/tren_pasajeros";
+import {TrenMercancias} from "../../../models/tren_mercancias";
 
 @Component({
   selector: 'app-crear-empleado',
@@ -12,7 +14,7 @@ import {ViajeService} from "../../../viajes/viaje.service";
 })
 export class CrearEmpleadoComponent implements OnInit {
   empleado!: any;
-  viajes!: any [];
+  viajes!: any[];
   constructor(private empleadoService: EmpleadoService, private viajeService: ViajeService) {
     this.empleado = {
       tipo: "",

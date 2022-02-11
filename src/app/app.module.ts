@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {EmpleadosModule} from "./empleados/empleados.module";
 import {EmpleadoService} from "./empleados/empleado.service";
 
+import { HighchartsChartModule } from 'highcharts-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import {EmpleadoService} from "./empleados/empleado.service";
     HttpClientModule,
     ClientesModule,
     NgbModule,
-    EmpleadosModule
+    EmpleadosModule,
+    HighchartsChartModule
   ],
   providers: [
     ClienteService,

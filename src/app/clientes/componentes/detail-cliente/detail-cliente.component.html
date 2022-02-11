@@ -8,9 +8,9 @@
   </thead>
   <tbody>
   <tr>
-    <td>{{cliente?._nombre}}</td>
-    <td>{{cliente?._dni}}</td>
-    <td><input *ngIf="cliente?._telefono" type="number" [(ngModel)]="cliente._telefono"/></td>
+    <td>{{cliente?.nombre}}</td>
+    <td>{{cliente?.dni}}</td>
+    <td><input *ngIf="cliente?.telefono" type="number" [(ngModel)]="cliente.telefono"></td>
   </tr>
   </tbody>
 </table>

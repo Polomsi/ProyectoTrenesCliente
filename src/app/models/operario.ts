@@ -1,20 +1,36 @@
 import {Empleado} from "./empleado";
 
 export class Operario extends Empleado {
-  private tren: string | null;
-  private viajes: number | null;
+  private _tren: string;
+  private _viajes: number;
 
   constructor(
-    tipo: string | null,
-    dni: string | null,
-    nombre: string | null,
-    telefono: number | null,
-    sueldo: number | null,
-    tren: string | null,
-    viajes: number | null,
+    _tipoObjeto: string,
+    _dni: string,
+    _nombre: string,
+    _telefono: number,
+    _sueldo: number,
+    _tren: string,
+    _viajes: number,
   ) {
-    super(tipo, dni, nombre, telefono, sueldo);
-    this.tren = tren;
-    this.viajes = viajes;
+    super(_tipoObjeto, _dni, _nombre, _telefono, _sueldo);
+    this._tren = _tren;
+    this._viajes = _viajes;
+  }
+
+  get tren(): string {
+    return this._tren;
+  }
+
+  set tren(value: string) {
+    this._tren = value;
+  }
+
+  get viajes(): number {
+    return this._viajes;
+  }
+
+  set viajes(value: number) {
+    this._viajes = value;
   }
 }
