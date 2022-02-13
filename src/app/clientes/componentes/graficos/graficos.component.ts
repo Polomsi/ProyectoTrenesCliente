@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import * as Highcharts from 'highcharts';
+import { Component, OnInit } from '@angular/core';
 import {ClienteService} from "../../cliente.service";
 import {BilletesService} from "../../../viajes/billetes.service";
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-graficos',
@@ -10,11 +10,13 @@ import {BilletesService} from "../../../viajes/billetes.service";
 })
 export class GraficosComponent implements OnInit {
   total_viajes!: number;
-  viajes_clientes!: any[];
   viajes!: any[];
   clientes!: any[];
 
-
+  chart;
+  updateFromInput = false;
+  chartConstructor = "chart";
+  chartCallback;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: any = {
     chart: {
@@ -24,7 +26,7 @@ export class GraficosComponent implements OnInit {
       type: 'pie'
     },
     title: {
-      text: 'Browser market shares in January, 2018'
+      text: 'Clientes con mayor número de viajes'
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -48,11 +50,19 @@ export class GraficosComponent implements OnInit {
       name: 'Cuota de billetes',
       colorByPoint: true,
       data: []
-    }]
+    }],
+    exporting: {
+      enabled: true
+    },
   };
 
 
   constructor(private clienteService: ClienteService, private billeteService: BilletesService) {
+    const self = this;
+
+    this.chartCallback = chart => {
+      self.chart = chart;
+    };
   }
 
   ngOnInit(): void {
@@ -75,32 +85,10 @@ export class GraficosComponent implements OnInit {
           name: cliente._nombre,
           y: (counter/this.total_viajes) * 100
         })
-        console.log(this.chartOptions)
+        this.updateFromInput = true;
+        this.chart.hideLoading();
       })
     })
-
-
-//       {
-//         name: 'Chrome',
-//         y: 61.41,
-//         sliced: true,
-//         selected: true
-//       }, {
-//         name: 'Internet Explorer',
-//         y: 11.84
-//       }, {
-//         name: 'Firefox',
-//         y: 10.85
-//       }, {
-//         name: 'Edge',
-//         y: 4.67
-//       }, {
-//         name: 'Safari',
-//         y: 4.18
-//       }, {
-//         name: 'Other',
-//         y: 7.05
-//       }
 
   }
 

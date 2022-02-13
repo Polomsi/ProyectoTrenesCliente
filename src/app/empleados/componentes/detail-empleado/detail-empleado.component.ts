@@ -30,17 +30,6 @@ export class DetailEmpleadoComponent implements OnInit {
 
     this.empleadoService.getEmpleadoDNI(this.dni_empleado).subscribe((response) => {
       this.empleado = response[0];
-      // switch (response[0]._tipoObjeto) {
-      //   case "operario":
-      //     this.empleado = new Operario(response[0]._tipoObjeto, response[0]._dni, response[0]._nombre, response[0]._telefono, response[0]._sueldo, response[0]._tren, response[0]._viajes);
-      //     break;
-      //   case "limpiador":
-      //     this.empleado = new Limpiador(response[0]._tipoObjeto, response[0]._dni, response[0]._nombre, response[0]._telefono, response[0]._sueldo, response[0]._horas, response[0]._tren);
-      //     break;
-      //   case "revisor":
-      //     this.empleado = new Revisor(response[0]._tipoObjeto, response[0]._dni, response[0]._nombre, response[0]._telefono, response[0]._sueldo, response[0]._horas, response[0]._viajes);
-      //     break;
-      // }
     });
     this.viajeService.getViajes().subscribe((respuesta) => {
       this.trenes = respuesta;

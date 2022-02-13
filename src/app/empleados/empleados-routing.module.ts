@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {GetEmpleadosComponent} from "./componentes/get-empleados/get-empleados.component";
 import {CrearEmpleadoComponent} from "./componentes/crear-empleado/crear-empleado.component";
 import {DetailEmpleadoComponent} from "./componentes/detail-empleado/detail-empleado.component";
+import {GraficosComponent} from "./componentes/graficos/graficos.component";
 
 const routes: Routes = [
 
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: "empleado/detail/:dni",
     component: DetailEmpleadoComponent
+  },
+  {
+    path: "empleado/graficos",
+    component: GraficosComponent
   },
 ];
 

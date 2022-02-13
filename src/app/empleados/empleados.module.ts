@@ -9,20 +9,23 @@ import { GetEmpleadosComponent } from './componentes/get-empleados/get-empleados
 import { MainEmpleadoComponent } from './main-empleado/main-empleado.component';
 import { CrearEmpleadoComponent } from './componentes/crear-empleado/crear-empleado.component';
 import { DetailEmpleadoComponent } from './componentes/detail-empleado/detail-empleado.component';
-
+import { GraficosComponent } from './componentes/graficos/graficos.component';
+import {HighchartsChartModule} from "highcharts-angular";
 
 @NgModule({
   declarations: [
     GetEmpleadosComponent,
     MainEmpleadoComponent,
     CrearEmpleadoComponent,
-    DetailEmpleadoComponent
+    DetailEmpleadoComponent,
+    GraficosComponent
   ],
   imports: [
     CommonModule,
     EmpleadosRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ],
   providers: [
     EmpleadoService

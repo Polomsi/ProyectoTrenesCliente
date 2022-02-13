@@ -11,7 +11,8 @@ import { GetBilletesComponent } from './componentes/get-billetes/get-billetes.co
 import { GetRegistrosComponent } from './componentes/get-registros/get-registros.component';
 import { CrearRegistroComponent } from './componentes/crear-registro/crear-registro.component';
 import { CrearBilleteComponent } from './componentes/crear-billete/crear-billete.component';
-
+import { GraficosComponent } from './componentes/graficos/graficos.component';
+import {HighchartsChartModule} from "highcharts-angular";
 
 @NgModule({
   declarations: [
@@ -22,12 +23,14 @@ import { CrearBilleteComponent } from './componentes/crear-billete/crear-billete
     GetBilletesComponent,
     GetRegistrosComponent,
     CrearRegistroComponent,
-    CrearBilleteComponent
+    CrearBilleteComponent,
+    GraficosComponent
   ],
   imports: [
     CommonModule,
     ViajesRoutingModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ]
 })
 export class ViajesModule { }
