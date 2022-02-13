@@ -22,34 +22,34 @@ export class ViajeService {
 
   crearTrenPasajeros(tren: Tren) {
     const url = `${this.url_api}/crearTrenPasajeros`;
-    return this.http.post<any>(url, tren);
+    return this.http.post(url, tren, {responseType: 'text'});
   }
 
   crearTrenMercancias(tren: Tren) {
     const url = `${this.url_api}/crearTrenMercancias`;
-    return this.http.post<any>(url, tren);
+    return this.http.post(url, tren, {responseType: 'text'});
   }
 
   deleteTrenes(id: string) {
     const url = `${this.url_api}/deleteTrenes/${id}`;
-    return this.http.delete<any>(url);
+    return this.http.delete(url, {responseType: 'text'});
   }
 
   actualizarOrigenViaje(id: string, origen: string) {
     const url = `${this.url_api}/actualizarOrigenViaje/${id}/${origen}`;
-    return this.http.put<any>(url, JSON.stringify({"id": id, "origen": origen}));
+    return this.http.put(url, JSON.stringify({"id": id, "origen": origen}), {responseType: 'text'});
   }
   actualizarDestinoViaje(id: string, destino: string) {
     const url = `${this.url_api}/actualizarDestinoViaje/${id}/${destino}`;
-    return this.http.put<any>(url, JSON.stringify({"id": id, "destino": destino}));
+    return this.http.put(url, JSON.stringify({"id": id, "destino": destino}), {responseType: 'text'});
   }
   actualizarCarga(id: string, tipocarga: string, cantidad: number) {
     const url = `${this.url_api}/actualizarCarga/${id}/${tipocarga}/${cantidad}`;
-    return this.http.put<any>(url, JSON.stringify({"id": id, "tipocarga": tipocarga, "cantidad": cantidad}));
+    return this.http.put(url, JSON.stringify({"id": id, "tipocarga": tipocarga, "cantidad": cantidad}), {responseType: 'text'});
   }
   actualizarPrecio(id: string, precio: number) {
     const url = `${this.url_api}/actualizarPrecio/${id}/${precio}`;
-    return this.http.put<any>(url, JSON.stringify({"id": id, "precio": precio}));
+    return this.http.put(url, JSON.stringify({"id": id, "precio": precio}), {responseType: 'text'});
   }
 
 }

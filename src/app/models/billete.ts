@@ -73,4 +73,14 @@ export class Billete {
   set fecha(value: Date) {
     this._fecha = value;
   }
+
+  getFechaFormat() {
+    let fecha = new Date(this._fecha);
+
+    return fecha.getDate() + "/" + fecha.getMonth() + 1 + "/" + fecha.getFullYear();
+  }
+
+  sumarIva() {
+    return this._precio + (this._precio * 0.21);
+  }
 }

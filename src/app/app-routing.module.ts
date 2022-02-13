@@ -1,25 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MainClienteComponent} from "./clientes/main-cliente/main-cliente.component";
-import {MainEmpleadoComponent} from "./empleados/main-empleado/main-empleado.component";
-import {MainViajeComponent} from "./viajes/main-viaje/main-viaje.component";
+import {IsLoggedGuard} from "./is-logged.guard";
+import {LoginComponent} from "./login/login.component";
+import {IsNotLoggedGuard} from "./is-not-logged.guard";
 
 const routes: Routes = [
   {
     path: "cliente",
-    component: MainClienteComponent,
-    loadChildren: () => import("./clientes/clientes.module").then(m => m.ClientesModule)
+    loadChildren: () => import("./clientes/clientes.module").then(m => m.ClientesModule),
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "empleado",
-    component: MainEmpleadoComponent,
-    loadChildren: () => import("./empleados/empleados.module").then(m => m.EmpleadosModule)
+    loadChildren: () => import("./empleados/empleados.module").then(m => m.EmpleadosModule),
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "viaje",
-    component: MainViajeComponent,
-    loadChildren: () => import("./viajes/viajes.module").then(m => m.ViajesModule)
+    loadChildren: () => import("./viajes/viajes.module").then(m => m.ViajesModule),
+    canActivate: [IsLoggedGuard]
   },
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [IsNotLoggedGuard]
+  }
 ];
 
 @NgModule({

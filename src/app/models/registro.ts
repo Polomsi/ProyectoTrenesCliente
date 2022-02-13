@@ -5,8 +5,26 @@ export class Registro {
     private _kilometros: Number,
     private _origen: string,
     private _destino: string,
+    private _tipoCarga: string,
+    private _kilosCarga: number,
     private _fecha:Date,
   ) {
+  }
+
+  get kilosCarga(): number {
+    return this._kilosCarga;
+  }
+
+  set kilosCarga(value: number) {
+    this._kilosCarga = value;
+  }
+
+  get tipoCarga(): string {
+    return this._tipoCarga;
+  }
+
+  set tipoCarga(value: string) {
+    this._tipoCarga = value;
   }
 
   get id(): string {
@@ -55,5 +73,11 @@ export class Registro {
 
   set fecha(value: Date) {
     this._fecha = value;
+  }
+
+  getFechaFormat() {
+    let fecha = new Date(this._fecha);
+
+    return fecha.getDate() + "/" + fecha.getMonth() + 1 + "/" + fecha.getFullYear();
   }
 }

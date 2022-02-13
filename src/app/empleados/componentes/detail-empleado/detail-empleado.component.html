@@ -1,5 +1,5 @@
-<table class="table table-active">
-  <thead>
+<table class="table table-active w-50 mx-auto mt-5">
+  <thead style="background-color: rgba(105,193,193,0.85)">
   <tr>
     <th>Tipo</th>
     <th>DNI</th>
@@ -11,7 +11,7 @@
     <th *ngIf="empleado?._tipoObjeto == 'operario' || empleado?._tipoObjeto == 'revisor'">Viajes</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color: rgba(255,255,255,0.9)">
   <tr>
     <td>{{empleado?._tipoObjeto}}</td>
     <td>{{empleado?._dni}}</td>
@@ -32,30 +32,30 @@
   </tr>
   </tbody>
 </table>
-<table class="table table-hover">
-  <thead>
+<table class="table table-active w-25 mx-auto mt-5">
+  <thead style="background-color: rgba(105,193,193,0.85)">
   <tr>
     <th>Salario</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color: rgba(255,255,255,0.9)">
   <tr>
     <td>{{salario}}</td>
   </tr>
   </tbody>
 </table>
-<div>
-  <button (click)="actualizarSalario()" class="btn btn-success">Actualizar Salario</button>
-  <button (click)="actualizarTrenOperario()" class="btn btn-success" *ngIf="empleado?._tipoObjeto == 'operario'">Actualizar
+<div class="w-50 mx-auto d-flex justify-content-between mt-5">
+  <button (click)="actualizarSalario()" class="btn btn-success" style="background-color: #408080">Actualizar Salario</button>
+  <button (click)="actualizarTrenOperario()" class="btn btn-success" style="background-color: #408080" *ngIf="empleado?._tipoObjeto == 'operario'">Actualizar
     Tren (operario)
   </button>
-  <button (click)="actualizarViajesOperario()" class="btn btn-success" *ngIf="empleado?._tipoObjeto == 'operario'">Actualizar
+  <button (click)="actualizarViajesOperario()" class="btn btn-success" style="background-color: #408080" *ngIf="empleado?._tipoObjeto == 'operario'">Actualizar
     Viajes (operario)
   </button>
-  <button (click)="actualizarViajeHoras()" class="btn btn-success" *ngIf="empleado?._tipoObjeto == 'revisor'">Actualizar Horas
+  <button (click)="actualizarViajeHoras()" class="btn btn-success" style="background-color: #408080" *ngIf="empleado?._tipoObjeto == 'revisor'">Actualizar Horas
     de Viaje (revisor)
   </button>
-  <button (click)="actualizarHorasTren()" class="btn btn-success" *ngIf="empleado?._tipoObjeto == 'limpiador'">Actualizar Horas
+  <button (click)="actualizarHorasTren()" class="btn btn-success" style="background-color: #408080" *ngIf="empleado?._tipoObjeto == 'limpiador'">Actualizar Horas
     de Tren (limpiador)
   </button>
 </div>

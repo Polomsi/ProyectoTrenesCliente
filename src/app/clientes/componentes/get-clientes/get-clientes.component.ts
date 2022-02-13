@@ -15,11 +15,10 @@ export class GetClientesComponent implements OnInit {
   ngOnInit(): void {
     this.clienteService.getClientes().subscribe((respuesta) => {
       this.clientes = respuesta;
-      console.log(respuesta)
     });
   }
   deleteCliente(dni: string){
-    this.clienteService.deleteCliente(dni).subscribe((respuesta) => {
+    this.clienteService.deleteCliente(dni).subscribe(() => {
       this.ngOnInit();
     })
   }

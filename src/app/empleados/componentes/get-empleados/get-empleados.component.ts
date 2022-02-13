@@ -16,11 +16,10 @@ export class GetEmpleadosComponent implements OnInit {
 
     this.empleadoService.getEmpleados().subscribe((data) => {
       this.empleados = data;
-      console.log(data)
     })
   }
-  deleteCliente(dni: string) {
-    this.empleadoService.deleteEmpleado(dni).subscribe((respuesta) => {
+  deleteEmpleado(dni: string) {
+    this.empleadoService.deleteEmpleado(dni).subscribe(() => {
       this.ngOnInit();
     })
   }

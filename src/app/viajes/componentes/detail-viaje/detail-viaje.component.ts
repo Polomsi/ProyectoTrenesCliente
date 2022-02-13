@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ClienteService} from "../../../clientes/cliente.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ViajeService} from "../../viaje.service";
-import {Billete} from "../../../models/billete";
-import {TrenPasajeros} from "../../../models/tren_pasajeros";
-import {TrenMercancias} from "../../../models/tren_mercancias";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-detail-viaje',
@@ -17,40 +14,56 @@ export class DetailViajeComponent implements OnInit {
   viaje_id!: string;
   billetes!: any[];
 
-  constructor(private viajeService: ViajeService, private route: ActivatedRoute) {
+  constructor(private viajeService: ViajeService, private route: ActivatedRoute,
+              private _snackBar: MatSnackBar,
+              private router: Router) {
     this.viaje_id = <string>this.route.snapshot.paramMap.get("id");
   }
 
   ngOnInit(): void {
     this.viajeService.getViaje(this.viaje_id).subscribe((data) => {
       this.viaje = data[0]
-      console.log(this.viaje)
+
     });
   }
 
   actualizarOrigen() {
-    console.log(this.viaje._id, this.viaje._origen)
     this.viajeService.actualizarOrigenViaje(this.viaje._id, this.viaje._origen).subscribe((response) => {
-      console.log(response);
+      this._snackBar.open("Origen modificado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.router.navigateByUrl("/viaje")
     });
   }
 
   actualizarDestino() {
-    console.log(this.viaje._id, this.viaje._destino)
     this.viajeService.actualizarDestinoViaje(this.viaje._id, this.viaje._destino).subscribe((response) => {
-      console.log(response);
+      this._snackBar.open("Destino modificado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.router.navigateByUrl("/viaje")
     });
   }
 
   actualizarCarga() {
     this.viajeService.actualizarCarga(this.viaje._id, this.viaje._tipoCarga, this.viaje._kilosCarga).subscribe((response) => {
-      console.log(response);
+      this._snackBar.open("Carga actualizada correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.router.navigateByUrl("/viaje")
     });
   }
 
   actualizarPrecio() {
     this.viajeService.actualizarPrecio(this.viaje._id, this.viaje._precio).subscribe((response) => {
-      console.log(response);
+      this._snackBar.open("Precio actualizado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.router.navigateByUrl("/viaje")
     });
   }
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {BilletesService} from "../../billetes.service";
 import {RegistrosService} from "../../registros.service";
 import {Registro} from "../../../models/registro";
+import {Billete} from "../../../models/billete";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-get-registros',
@@ -10,23 +13,29 @@ import {Registro} from "../../../models/registro";
 })
 export class GetRegistrosComponent implements OnInit {
 
-  registros!: any[];
+  registros!: Registro[];
 
-  constructor(private registroService: RegistrosService) { }
+  constructor(private registroService: RegistrosService,
+              private _snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.registroService.getRegistros().subscribe((respuesta) => {
-      this.registros = respuesta;
+      this.registros = respuesta.map((reg) => {
+        return new Registro(reg._id, reg._tren_id, reg._kilometros, reg._origen, reg._destino, reg._tipoCarga, reg._kilosCarga, reg._fecha);
+      });
     })
   }
 
   deleteRegistro(id: string){
-    this.registroService.deleteRegistros(id).subscribe();
-  }
+    this.registroService.deleteRegistros(id).subscribe(() => {
+      this._snackBar.open("Registro eliminado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.ngOnInit()
+    });
 
-  getFecha(fecha: string) {
-    let date = new Date(fecha)
-    return date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear();
   }
 
 }

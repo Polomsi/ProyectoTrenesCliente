@@ -19,11 +19,11 @@ export class BilletesService {
 
   crearBillete(bill: Billete) {
     const url = `${this.url_api}/crearBilletes`;
-    return this.http.post(url, bill);
+    return this.http.post(url, bill, {responseType: "text"});
   }
 
   deleteBilletes(id: string) {
     const url = `${this.url_api}/deleteBilletes/${id}`;
-    return this.http.delete<any>(url);
+    return this.http.delete(url, {responseType: "text"});
   }
 }

@@ -8,44 +8,54 @@ import {GetRegistrosComponent} from "./componentes/get-registros/get-registros.c
 import {CrearRegistroComponent} from "./componentes/crear-registro/crear-registro.component";
 import {CrearBilleteComponent} from "./componentes/crear-billete/crear-billete.component";
 import {GraficosComponent} from "./componentes/graficos/graficos.component";
+import {IsLoggedGuard} from "../is-logged.guard";
 
 const routes: Routes = [
   {
     path: "",
     component: GetViajesComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
-    path: "viaje/todos",
+    path: "todos",
     redirectTo: "",
-    pathMatch: "full"
+    pathMatch: "full",
+    canActivate: [IsLoggedGuard]
   },
   {
-    path: "viaje/crear-tren",
+    path: "crear-tren",
     component: CrearViajeComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
-    path: "viaje/detail/:id",
+    path: "detail/:id",
     component: DetailViajeComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "billetes",
     component: GetBilletesComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "registros",
     component: GetRegistrosComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "crear-registro",
     component: CrearRegistroComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "crear-billete",
     component: CrearBilleteComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: "graficos",
     component: GraficosComponent,
+    canActivate: [IsLoggedGuard]
   },
 ];
 

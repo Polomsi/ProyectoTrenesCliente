@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ClienteService} from "../../cliente.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Cliente} from "../../../models/cliente";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-detail-cliente',
@@ -12,7 +13,7 @@ export class DetailClienteComponent implements OnInit {
 
   cliente!: Cliente;
   cliente_dni!: string;
-  constructor(private clienteService: ClienteService, private route: ActivatedRoute) {
+  constructor(private clienteService: ClienteService, private route: ActivatedRoute, private _snackBar: MatSnackBar, private router: Router) {
     this.cliente_dni = <string>this.route.snapshot.paramMap.get("dni");
   }
 
@@ -24,7 +25,11 @@ export class DetailClienteComponent implements OnInit {
 
   actualizarTlfCli() {
     this.clienteService.actualizarTlfCli(this.cliente.dni, this.cliente.telefono).subscribe((response) => {
-      console.log(response);
+      this._snackBar.open("Cliente actualizado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.router.navigateByUrl("/cliente")
     });
   }
 

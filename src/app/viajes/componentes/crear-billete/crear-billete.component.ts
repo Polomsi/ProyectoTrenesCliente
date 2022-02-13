@@ -7,6 +7,8 @@ import {BilletesService} from "../../billetes.service";
 import {TrenPasajeros} from "../../../models/tren_pasajeros";
 import {TrenMercancias} from "../../../models/tren_mercancias";
 import {delay} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-crear-billete',
@@ -18,7 +20,9 @@ export class CrearBilleteComponent implements OnInit {
   clientes!: any[];
   trenes: any[] = [];
 
-  constructor(private clienteService: ClienteService, private viajeService: ViajeService, private billeteService: BilletesService) {
+  constructor(private clienteService: ClienteService, private viajeService: ViajeService, private billeteService: BilletesService,
+              private _snackBar: MatSnackBar,
+              private router: Router) {
     this.clienteService.getClientes().subscribe((clientes) => {
       this.clientes = clientes;
     })
@@ -42,6 +46,11 @@ export class CrearBilleteComponent implements OnInit {
 
   crearBillete() {
     this.billeteService.crearBillete(this.billete).subscribe((respuesta) => {
+      this._snackBar.open("Billete creado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.router.navigateByUrl("/viaje/billetes")
     })
   }
 }

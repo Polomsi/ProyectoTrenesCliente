@@ -17,15 +17,15 @@ export class ClienteService {
   }
   crearCliente(cliente: Cliente) {
     const url = `${this.url_api}/crearCliente`;
-    return this.http.post(url, cliente);
+    return this.http.post(url, cliente, {responseType: 'text'});
   }
   deleteCliente(dni: string) {
     const url = `${this.url_api}/deleteCliente/${dni}`;
-    return this.http.delete(url);
+    return this.http.delete(url, {responseType: 'text'});
   }
   actualizarTlfCli(dni: string, telefono: number | string) {
     const url = `${this.url_api}/actualizarTlfCli/${dni}/${telefono}`;
-    return this.http.put(url, JSON.stringify({_dni: dni, _telefono: telefono}));
+    return this.http.put(url, JSON.stringify({_dni: dni, _telefono: telefono}), {responseType: 'text'});
   }
   getClienteDNI(dni: string) {
     const url = `${this.url_api}/clientes/${dni}`;

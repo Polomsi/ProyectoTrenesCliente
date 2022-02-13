@@ -20,19 +20,19 @@ export class EmpleadoService {
   }
   deleteEmpleado(dni: string) {
     const url = `${this.url_api}/deleteEmpleado/${dni}`;
-    return this.http.delete(url);
+    return this.http.delete(url, {responseType: 'text'});
   }
   crearOperario(operario: Operario) {
     const url = `${this.url_api}/crearOperario`;
-    return this.http.post(url, operario);
+    return this.http.post(url, operario, {responseType: 'text'});
   }
   crearLimpiador(limpiador: Limpiador) {
     const url = `${this.url_api}/crearLimpiador`;
-    return this.http.post(url, limpiador);
+    return this.http.post(url, limpiador, {responseType: 'text'});
   }
   crearRevisor(revisor: Revisor) {
     const url = `${this.url_api}/crearRevisor`;
-    return this.http.post(url, revisor);
+    return this.http.post(url, revisor, {responseType: 'text'});
   }
   getEmpleadoDNI(dni: string) {
     const url = `${this.url_api}/empleado/${dni}`;
@@ -45,29 +45,29 @@ export class EmpleadoService {
   }
   actualizarSalarioEmpleado(dni: string, salario: number) {
     const url = `${this.url_api}/actualizarSalEmp/${dni}/${salario}`;
-    return this.http.put<any>(url, JSON.stringify({"dni": dni, "salario": salario}));
+    return this.http.put(url, JSON.stringify({"dni": dni, "salario": salario}), {responseType: 'text'});
   }
 
   //OPERARIO
   actualizarTrenOperario(dni: string, idTren: string) {
     const url = `${this.url_api}/actualizarTrenOpe/${dni}/${idTren}`;
-    return this.http.put<any>(url, JSON.stringify({"dni": dni, "idTren": idTren}));
+    return this.http.put(url, JSON.stringify({"dni": dni, "idTren": idTren}), {responseType: 'text'});
   }
   actualizarViajesOperario(dni: string, nViajes: number) {
     const url = `${this.url_api}/actualizarViajesOpe/${dni}/${nViajes}`;
-    return this.http.put<any>(url, JSON.stringify({"dni": dni, "nViajes": nViajes}));
+    return this.http.put(url, JSON.stringify({"dni": dni, "nViajes": nViajes}), {responseType: 'text'});
   }
 
   //REVISOR
   actualizarViajeHoras(dni: string, nViajes: number, horas: number) {
     const url = `${this.url_api}/actualizarViajeHoras/${dni}/${nViajes}/${horas}`;
-    return this.http.put<any>(url, JSON.stringify({"dni": dni, "nViajes": nViajes, "horas": horas}));
+    return this.http.put(url, JSON.stringify({"dni": dni, "nViajes": nViajes, "horas": horas}), {responseType: 'text'});
   }
 
   //LIMPIADOR
   actualizarHorasTren(dni: string, horas: number, idTren: string) {
     const url = `${this.url_api}/actualizarHorasTren/${dni}/${horas}/${idTren}`;
-    return this.http.put<any>(url, JSON.stringify({"dni": dni, "horas": horas, "idTren": idTren}));
+    return this.http.put(url, JSON.stringify({"dni": dni, "horas": horas, "idTren": idTren}), {responseType: 'text'});
   }
 
 }

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RegistrosService} from "../../registros.service";
 import {BilletesService} from "../../billetes.service";
 import {Billete} from "../../../models/billete";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-get-billetes',
@@ -9,30 +11,28 @@ import {Billete} from "../../../models/billete";
   styleUrls: ['./get-billetes.component.css']
 })
 export class GetBilletesComponent implements OnInit {
-  billetes!: any[];
+  billetes!: Billete[];
 
-  constructor(private billeteService: BilletesService) {
+  constructor(private billeteService: BilletesService,
+              private _snackBar: MatSnackBar,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.billeteService.getBilletes().subscribe((respuesta) => {
-      this.billetes = respuesta;
+      this.billetes = respuesta.map((bill) => {
+        return new Billete(bill._id, bill._dni, bill._idTrenPasajeros, bill._asiento, bill._precio, bill._origen, bill._destino, bill._fecha);
+      });
     })
-  }
-
-  sumarIva(billete: any) {
-    return billete._precio + (billete._precio * 0.21);
   }
 
   deleteBillete(dni: string) {
     this.billeteService.deleteBilletes(dni).subscribe((respuesta) => {
-      console.log(respuesta)
+      this._snackBar.open("Billete eliminado correctamente", "", {
+        duration: 1000,
+        verticalPosition: "top"
+      });
+      this.ngOnInit()
     })
-  }
-
-
-  getFecha(fecha: string) {
-    let date = new Date(fecha)
-    return date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
   }
 }

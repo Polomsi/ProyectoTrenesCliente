@@ -13,6 +13,9 @@ import { CrearRegistroComponent } from './componentes/crear-registro/crear-regis
 import { CrearBilleteComponent } from './componentes/crear-billete/crear-billete.component';
 import { GraficosComponent } from './componentes/graficos/graficos.component';
 import {HighchartsChartModule} from "highcharts-angular";
+import {MatIconModule} from "@angular/material/icon";
+
+
 
 @NgModule({
   declarations: [
@@ -24,13 +27,15 @@ import {HighchartsChartModule} from "highcharts-angular";
     GetRegistrosComponent,
     CrearRegistroComponent,
     CrearBilleteComponent,
-    GraficosComponent
+    GraficosComponent,
+
   ],
   imports: [
     CommonModule,
     ViajesRoutingModule,
     FormsModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatIconModule
   ]
 })
 export class ViajesModule { }

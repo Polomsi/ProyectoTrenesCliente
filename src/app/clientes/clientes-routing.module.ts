@@ -4,28 +4,33 @@ import {GetClientesComponent} from "./componentes/get-clientes/get-clientes.comp
 import {CrearClienteComponent} from "./componentes/crear-cliente/crear-cliente.component";
 import {DetailClienteComponent} from "./componentes/detail-cliente/detail-cliente.component";
 import {GraficosComponent} from "./componentes/graficos/graficos.component";
+import {IsLoggedGuard} from "../is-logged.guard";
 
 const routes: Routes = [
     {
       path: "",
       component: GetClientesComponent,
+      canActivate: [IsLoggedGuard]
     },
     {
-      path: "cliente/todos",
+      path: "todos",
       redirectTo: "",
       pathMatch: "full"
     },
     {
-      path: "cliente/crear",
+      path: "crear",
       component: CrearClienteComponent,
+      canActivate: [IsLoggedGuard]
     },
     {
-      path: "cliente/detail/:dni",
+      path: "detail/:dni",
       component: DetailClienteComponent,
+      canActivate: [IsLoggedGuard]
     },
     {
-      path: "cliente/graficos",
+      path: "graficos",
       component: GraficosComponent,
+      canActivate: [IsLoggedGuard]
     },
 ];
 

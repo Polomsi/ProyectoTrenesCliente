@@ -1,16 +1,35 @@
-<div class="todos-registros">
-  <div class="container-crear-registro">
-    <button class="btn btn-primary" [routerLink]="['/viaje/crear-registro']">Crear registro</button>
-  </div>
-  <div class="registro-row" *ngFor="let registro of registros">
-    <div class="registro-info">
-      <div class="registro-info-left">
-        <p class="mb-0">Origen: {{registro._origen}} - Destino: {{registro._destino}} <br/>Kilómetros: {{registro._kilometros}}<br/>Fecha: {{getFecha(registro._fecha)}}</p>
-      </div>
-      <div class="registro-info-right">
-        <button class="btn btn-danger" (click)="deleteRegistro(registro._id)">Eliminar</button>
-      </div>
-    </div>
+<div class="todos-registros mt-5">
 
-  </div>
+  <button class="btn btn-success" style="background-color: #408080" [routerLink]="['/viaje/crear-registro']">+ Añadir</button>
+  <table class="table mx-auto w-100 mt-4">
+    <thead style="background-color: rgba(105,193,193,0.85)">
+    <tr>
+      <th>Id. Viaje</th>
+      <th>Trayecto</th>
+      <th>Kilómetros</th>
+      <th>Carga</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody style="background-color: rgba(255,255,255,0.9)">
+    <tr *ngFor="let registro of registros">
+      <td>{{registro.id}}</td>
+      <td>{{registro.origen}} - {{registro.destino}}</td>
+      <td>{{registro.kilometros}}</td>
+      <td>{{registro.tipoCarga}}: {{registro.kilosCarga}}</td>
+      <td>{{registro.getFechaFormat()}}</td>
+      <td class="w-25">
+        <button class="btn btn-danger" (click)="deleteRegistro(registro.id)">
+          <mat-icon>
+            delete
+          </mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
 </div>

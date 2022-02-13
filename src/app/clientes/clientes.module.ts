@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { DetailClienteComponent } from './componentes/detail-cliente/detail-cliente.component';
 import { GraficosComponent } from './componentes/graficos/graficos.component';
 import {HighchartsChartModule} from "highcharts-angular";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -20,13 +21,14 @@ import {HighchartsChartModule} from "highcharts-angular";
     DetailClienteComponent,
     GraficosComponent,
   ],
-  imports: [
-    CommonModule,
-    ClientesRoutingModule,
-    NgbModule,
-    FormsModule,
-    HighchartsChartModule
-  ],
+    imports: [
+        CommonModule,
+        ClientesRoutingModule,
+        NgbModule,
+        FormsModule,
+        HighchartsChartModule,
+        MatIconModule
+    ],
   providers: [
     ClienteService
   ]

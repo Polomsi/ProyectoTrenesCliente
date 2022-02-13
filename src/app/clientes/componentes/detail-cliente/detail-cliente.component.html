@@ -1,12 +1,12 @@
-<table class="table table-active">
-  <thead>
+<table class="table table-active w-50 mx-auto mt-5">
+  <thead style="background-color: rgba(105,193,193,0.85)">
   <tr>
     <th>Nombre</th>
     <th>DNI</th>
     <th>Teléfono</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color: rgba(255,255,255,0.9)">
   <tr>
     <td>{{cliente?.nombre}}</td>
     <td>{{cliente?.dni}}</td>
@@ -14,6 +14,6 @@
   </tr>
   </tbody>
 </table>
-<div>
-  <button (click)="actualizarTlfCli()" class="btn btn-success">Actualizar Teléfono</button>
+<div class="text-center mx-auto">
+  <button (click)="actualizarTlfCli()" class="btn btn-success" style="background-color: #408080">Actualizar Teléfono</button>
 </div>

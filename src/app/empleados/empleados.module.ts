@@ -11,6 +11,7 @@ import { CrearEmpleadoComponent } from './componentes/crear-empleado/crear-emple
 import { DetailEmpleadoComponent } from './componentes/detail-empleado/detail-empleado.component';
 import { GraficosComponent } from './componentes/graficos/graficos.component';
 import {HighchartsChartModule} from "highcharts-angular";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {HighchartsChartModule} from "highcharts-angular";
     EmpleadosRoutingModule,
     NgbModule,
     FormsModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatIconModule
   ],
   providers: [
     EmpleadoService

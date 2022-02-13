@@ -19,11 +19,11 @@ export class RegistrosService {
 
   crearRegistro(reg: Registro) {
     const url = `${this.url_api}/crearRegistro`;
-    return this.http.post(url, reg);
+    return this.http.post(url, reg,{responseType: "text"});
   }
 
   deleteRegistros(id: string) {
     const url = `${this.url_api}/deleteRegistros/${id}`;
-    return this.http.delete<any>(url);
+    return this.http.delete(url,{responseType: "text"});
   }
 }

@@ -4,29 +4,35 @@ import {GetEmpleadosComponent} from "./componentes/get-empleados/get-empleados.c
 import {CrearEmpleadoComponent} from "./componentes/crear-empleado/crear-empleado.component";
 import {DetailEmpleadoComponent} from "./componentes/detail-empleado/detail-empleado.component";
 import {GraficosComponent} from "./componentes/graficos/graficos.component";
+import {IsLoggedGuard} from "../is-logged.guard";
 
 const routes: Routes = [
 
   {
     path: "",
     component: GetEmpleadosComponent,
+  canActivate: [IsLoggedGuard]
   },
   {
-    path: "empleado/todos",
+    path: "todos",
     redirectTo: "",
-    pathMatch: "full"
+    pathMatch: "full",
+    canActivate: [IsLoggedGuard]
   },
   {
-    path: "empleado/crear",
-    component: CrearEmpleadoComponent
+    path: "crear",
+    component: CrearEmpleadoComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
-    path: "empleado/detail/:dni",
-    component: DetailEmpleadoComponent
+    path: "detail/:dni",
+    component: DetailEmpleadoComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
-    path: "empleado/graficos",
-    component: GraficosComponent
+    path: "graficos",
+    component: GraficosComponent,
+    canActivate: [IsLoggedGuard]
   },
 ];
 
